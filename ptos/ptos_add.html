@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="picture">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>news</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/picture.css" />
+        <link rel="stylesheet" type="text/css" href="../css/app.css"/>
+        <!--<link href="../css/mui.dtpicker.css" rel="stylesheet" />-->
+        <link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
+		<style>
+			ul {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+			li{
+				list-style-type:none;/*去掉li前面的小黑点*/
+			}
+			.mui-btn {
+				padding: 10px;
+			}
+			.aname {
+				font-size: 16px;
+			}
+			.ainf {
+				font-size: 12px;
+			}
+			.iplay {
+				display: block;
+				background: no-repeat right center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABYCAYAAAADWlKCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAKwwAACsMBNCkkqwAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOS8xMi8xM5w+I3MAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAD9UlEQVR4nO2b3XETMRRGDwzvoYOkg5hRAVkqiKmAdIA7wHSQVECoALsC1gXciV0BTge4gvCwgnHk9d/+WF8m97ztxrlXs8fS1Urym6enJxwd3uZugPMcFyKGCxHDhYjhQsRwIWK4EDFciBguRAwXIoYLEcOFiOFCxHAhYrgQMVyIGC5EDBcihgsRw4WI4ULEcCFiuBAx3uVuwDGY2XtgCBTAALjc8tEFMAdKYBJC+HOK9nXBm5dwUM7MCmAEXDcMMQVuQwhlV23qC2khZjYAboGrjkLOgFEIYd5RvM6RrSFmdgs80J0MYqyHGFsSuR4S60TJ9vrwCEziZ+YhhGXy/xdU9aWgqjfnW+IsgEKtvkgJiUPUPfUyZsD42DoQ68+Y+p62AG6UhjAZITt6xopq3L9vGf+Gqh6dJX+S6ilKNaRkU8YCGLSVARBjDGLMdS5jbgkkhMQiWyejSGtEG2KsghopKoU++5AV68ZDcrvXYWTH8Pghdz1R6CHpN3MFDPsc02PsYcy1qy0nJ6uQOANKZz+jfcOUmd3H6W1jYo5RcvsqtikbuXtI+kBmBxbwz8DczMZtksdcsz1tOinZhMRxPF2bGh8R4gz4amZLMxu2aEqa8zq2LQs5e0j6EB8bLv6dAz/NrGwyjMWcj3vadjJyCimS60nLeFfAbzO7bfANT3MXLdvSmJxCBsl12VHcL8AyvpkfSpo7bdvJyCkkfQfocv5/Bnw3s/mBs6Y097aFzd7JPcv6T5dv5GtcAr/2TZN7yt0IGSE908k0+RS8FiEvhhd1yKEFUw5YAVBApoe0XQrZwgL4GEIY7pLRU+5G5OwhC57PZgbAsqPYK6rdxUMXC9Npbro8fzJy9pB0qll0FPcOuDhCRl3ubEvwOYWUyXXb5YoZ1X7GqMHSfZq7bNmWxuQUki5XnDdc+n4EPoUQiiabSzFnejKl7TJOY7IJid/iaXJ7fESIFfCNas+9zQNMc05zHnjIPctKx/mrA9egflCJGLd5eDFXukGWdddQYU+95PlDWVE97GXPeS+oivf6saBZCKHoM+8+cvcQ2NyhOwMmfW4SxdgTNs9oZd0tBAEhsRDfJbcvgbIPKTtOnNzlPnECAkPWP8xsTv3ZrJ1v2UfmuKDqGRt5QgjZ9kDWyd5D1iioP1U4P3KzqZYYY5v0om38rpDpIeCHrUFMCPjPEeSE/COetf3SU/i7EEL2GVUdSjXkGfGBfWDzIFsb/q93dRizU2R7yDr+o09R/GfRzsmRrSGvFRcihgsRw4WI4ULEcCFiuBAxXIgYLkQMFyKGCxHDhYjhQsRwIWK4EDFciBguRAwXIoYLEcOFiOFCxHAhYrgQMf4CVuqCm+17t3sAAAAASUVORK5CYII=);
+				background-size: 50px 44px;
+				-ms-touch-action: auto;
+			}
+		</style>
+
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">快速反馈</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>标&nbsp;&nbsp;&nbsp;题</label>
+					<input id="title" type="text" class="mui-input-clear" placeholder="请输入问题标题"style="padding: 0px 0px 0px 30px;">
+				</div>
+				<li class="mui-table-view-cell">
+				<a id="selectcategory" class="mui-navigate-right">
+					选择分类<span id="category"style="padding: 0px 0px 0px 85px;"></span>
+				</a>
+			    </li>
+			    <li class="mui-table-view-cell">
+				<a id="except_time" class="time_btn mui-navigate-right">
+					期望解决时间<span id="e_time"style="padding: 0px 0px 0px 45px;"></span>
+				</a>
+			    </li>
+			    <li class="mui-table-view-cell">
+				<a id="to_sb" class="mui-navigate-right">
+					指定负责人<span id="to_name"style="padding: 0px 0px 0px 65px;"></span>
+				</a>
+			    </li>
+			</form>
+			<br>
+			<label>&nbsp;&nbsp;&nbsp;文字描述</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
+			<div class="mui-input-row" style="margin: 10px 5px;">
+				<textarea id="textarea" rows="5" placeholder="请填写文字描述"></textarea>
+			</div>	
+			
+			<label>&nbsp;&nbsp;&nbsp;上传图片（可选）</label>
+			<br />
+			<div id="image-list" class="row image-list" style="height: 80px">
+			</div>
+			<form id="uploadForm" style="margin-top: 0px;">
+				<span>&nbsp;&nbsp;&nbsp;拍摄视频（可选）</span>
+				<span class="mui-icon mui-icon-camera" id="make_video" style="font-size: 40px;color: green; font-weight: bold;margin-top: 10px;"></span>
+				<ul id="history" class="dlist" style="text-align:left;">
+					<li id="empty" class="ditem-empty"></li>
+				</ul>	
+			</form>
+			<br/>        
+			<div class="mui-button-row">
+				<button id="newguide_submit" class="mui-btn mui-btn-primary" type="button" onclick="return true;">提交</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<button id="newguide_cancel" class="mui-btn mui-btn-danger" type="button" onclick="return false;">取消</button>
+			</div>
+			<br />
+			<br />
+		</div>
+		<script type="text/javascript" src="../js/basepath.js" ></script>
+		<script src="../js/add_picture.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/app.js"></script>
+		<script src="../js/mui.picker.js"></script>
+		<script type="text/javascript" src="../js/mui.picker.min.js" ></script>
+		<script src="../js/mui.poppicker.js"></script>
+		<script type="text/javascript" src="../js/get_video.js" ></script>
+		<script>
+		(function($, doc) {
+				$.init({ //需要先定义longtap
+					gestureConfig:{
+					   tap: true, //默认为true
+					   longtap: true, //默认为false
+					  }}) 
+				$.ready(function() {
+					//选择时间
+					var result = document.getElementById("e_time");
+					var btns = document.getElementById("except_time");
+					btns.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						/*
+						 * 首次显示时实例化组件
+						 * 示例为了简洁，将 options 放在了按钮的 dom 上
+						 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+						 */
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+							/*
+							 * rs.value 拼合后的 value
+							 * rs.text 拼合后的 text
+							 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+							 * rs.m 月，用法同年
+							 * rs.d 日，用法同年
+							 * rs.h 时，用法同年
+							 * rs.i 分（minutes 的第二个字母），用法同年
+							 */
+							result.innerText = rs.text;
+							/* 
+							 * 返回 false 可以阻止选择框的关闭
+							 * return false;
+							 */
+							/*
+							 * 释放组件资源，释放后将将不能再操作组件
+							 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+							 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+							 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+							 */
+							picker.dispose();
+						});
+					}, false);
+					
+					//选择分类
+					var selectcategory = new $.PopPicker();
+					selectcategory.setData([{
+						value: 'quality',
+						text: '质量'
+					},{
+						value: 'technology',
+						text: '技术'
+					},{
+						value: 'others',
+						text: '其他'
+					}]);
+					var showUserPickerButton = doc.getElementById('selectcategory');
+					var category = doc.getElementById('category');
+					showUserPickerButton.addEventListener('tap', function(event) {
+						selectcategory.show(function(items) {
+							category.innerText = items[0].text;
+							//返回 false 可以阻止选择框的关闭
+//							return false;
+						});
+					}, false);
+					
+					//指定负责人
+					$.ajax({
+						type: "get",
+						url: basepath+"api/v1.0/user/getcontact?access_token="+localStorage.getItem("token"),
+						async: false,
+						dataType:"json",//如果返回的是str，那么这个地方必须用text，用json报错
+						success: function(data) {
+							if (data.response.success=="1")
+							{	
+								contacts=data.response.data
+								
+							}else{
+								plus.nativeUI.toast("获取联系人失败！");
+							}
+						},
+						error: function() {
+							plus.nativeUI.toast("请求服务器出现失败!");
+						}
+					});
+					
+					var selecttoman = new $.PopPicker();
+					selecttoman.setData(contacts);
+					var showUserPickerButton = doc.getElementById('to_sb');
+					var category = doc.getElementById('category');
+					showUserPickerButton.addEventListener('tap', function(event) {
+						selecttoman.show(function(items) {
+							to_name.innerText = items[0].text;
+						});
+					}, false);
+					
+				 //拍摄视频
+				 document.getElementById("make_video").addEventListener('tap',function(){
+				 	if(document.getElementById("history").innerHTML.length<100){
+				 		getVideo()
+				 	}else{
+				 		mui.toast("只能录一个视频哦~")
+				 	}
+				 })
+				 mui("#history").on("longtap","li",function(){
+			 		mui.confirm("是否删除该视频？","",["取消","删除"],function(e){
+						if(e.index==1){
+							cleanHistory()
+							}
+						})
+					})
+				 
+
+			     //提交反馈
+			        var titleBox = doc.getElementById('title');
+					var categoryBox = doc.getElementById('category');
+					var textareaBox = doc.getElementById('textarea');
+					var timeBox = doc.getElementById('e_time')
+					var toBox = doc.getElementById('to_name')
+					var newguide_submitButton = doc.getElementById("newguide_submit");
+					var newguide_cancelButton = doc.getElementById('newguide_cancel');
+					
+					newguide_submitButton.addEventListener('tap', function(event) {
+						
+//						var formData = new FormData();
+//						formData.append("name","dahu");
+						
+						if(titleBox.value==""){
+							plus.nativeUI.toast("请输入标题")
+						}else if(categoryBox.innerText==""){
+							plus.nativeUI.toast("请选择分类")
+						}else if(textareaBox.value==""){
+							plus.nativeUI.toast("请填写正文")
+						}else if(timeBox.value==""){
+							plus.nativeUI.toast("请选择期望解决时间")
+						}else if(toBox.value==""){
+							plus.nativeUI.toast("请选择指定人")
+						}else{
+							var wt  = plus.nativeUI.showWaiting("正在提交...");
+							getimgbase64();
+							$.ajax({
+							type: "post",
+							url: basepath+"api/v1.0/ptos",
+							data:{
+								"access_token":localStorage.getItem("token"),
+								"title":titleBox.value,
+								"category":categoryBox.innerText,
+								"context":textareaBox.value,
+								"images_list":JSON.stringify(images_array),
+								"except_time":timeBox.innerText,
+								"to_name":toBox.innerText,
+								"result":"",
+							},
+							async: false,
+							dataType:"json",//如果返回的是str，那么这个地方必须用text，用json报错
+							success: function(data) {
+								if (data.response.success=="1")
+								{	
+									wt.close();
+									plus.nativeUI.toast("问题反馈成功");
+									mui.back();
+									
+								}else{
+									plus.nativeUI.toast("问题反馈失败");
+								}
+							},
+							error: function() {
+								plus.nativeUI.toast("请求服务器出现失败!");
+							}
+						});
+			
+						}
+						});
+
+			   newguide_cancelButton.addEventListener('tap',function(event){
+			   	mui.back();
+			   })
+			
+				});
+			})(mui, document);
+		</script>
+	</body>
+</html>

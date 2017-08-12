@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>inforguide_main</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/icons-extra.css" />
+		<style>
+			html,
+			body {
+				background-color:#efeff4;
+			}
+			#technologyPopover {
+				height: 150px;
+				width: 200px;
+				text-align:center;
+			}
+			#qualityPopover{
+				height: 150px;
+				width: 200px;
+				text-align:center;
+			}
+			#productPopover{
+				height: 150px;
+				width: 200px;
+				text-align:center;
+			}
+			#servicePopover{
+				height: 150px;
+				width: 200px;
+				text-align:center;
+			}
+			/*#msg_remind{
+		   	  height: 10px;
+		   	  width: 10px;
+		      margin-right: 0px;
+		      background-color:red;
+		      border-radius: 15px;
+		      float:right;/*先将前面的符号改成浮动型的再改margin-top就可以和数据对齐了*/
+		      /*margin-top:5px;*/
+		    /*}*/
+		</style>
+   </head>
+	<body>
+		<div align="center" style="background-color:#FAFAFA">
+			<input type="search" id="inforshare_search" class="mui-icon mui-icon-search" placeholder="请输入搜索内容" style="width:250px;height:35px; background-color:#E8E8E8; margin-top: 10px;margin-bottom: 5px;"/>
+			<a id="inforshare_search"><span class="mui-icon mui-icon-search"></span></a>
+			<hr>
+		</div>
+		<div class="mui-content" style=" margin-top:-23px;">
+		        <ul class="mui-table-view mui-grid-view mui-grid-9">
+		           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#technologyPopover"><span class="mui-icon-extra mui-icon-extra-order"id="technology" style="margin-top: -10px;font-size: 35px;color: green;"></span></a>
+							<div class="mui-media-body" >技术</div>
+				    </li>
+				    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+							<a href="#qualityPopover"><span class="mui-icon mui-icon-eye"id="quality" style="margin-top: -10px;font-size: 35px;color: green;"></span></a>
+							<div class="mui-media-body" >质量</div>
+					</li>
+				    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			               <a href="#productPopover"><span class="mui-icon-extra mui-icon-extra-calendar"id="product" style="margin-top: -10px;font-size: 35px;color: green;"></span></a>
+							<div class="mui-media-body" >生产</div>
+					</li>
+				    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+							<a href="#servicePopover"><span class="mui-icon-extra mui-icon-extra-express"id="service" style="margin-top: -10px;font-size: 35px;color: green;"></span></a>
+							<div class="mui-media-body" >服务部</div>
+				    </li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			              <a href="#advicePopover"><span class="mui-icon-extra mui-icon-extra-custom"id="feedback" style="margin-top: -10px;font-size: 35px;color: green;"></span></a>
+							<div class="mui-media-body" >意见反馈</div>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			              <a href="#othersPopover"><span class="mui-icon mui-icon-compose"id="add_inforshare" style="margin-top: -10px;font-size: 35px;color: green;"></span></a>
+							<div class="mui-media-body" >发布信息</div>
+					</li>
+		        </ul> 
+		</div>
+		<div id="technologyPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell"><a href="#" id="121">1-2-1</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#" id="ll">LessonLearn</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#" id="peixun">操作手册</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<div id="qualityPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell"><a href="#" id="zlsm">质量说明</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#" id="qxml">缺陷目录</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#" id="khts">客户投诉</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="productPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell"><a href="#" id="glgz">管理规则</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#" id="ryq">荣誉墙</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#" id="lstz">临时通知</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="servicePopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell"><a href="#" id="jixiu">机修</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#" id="gongzhuang">工装</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#" id="logistic">物流</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+	    <script src="../js/mui.min.js"></script>
+		<script src="../js/app.js"></script>
+		<!--<script src="../js/common.js"></script>-->
+		<script type="text/javascript" src="../js/basepath.js" ></script>
+		<script>
+		(function($,doc){
+//			$.init(
+//				$.ajax({
+//					type:"get",
+//					url:basepath+"api/v1.0/msgunread?access_token="+localStorage.getItem("token")+"&user_id="+localStorage.getItem("mobile"),
+//					async:false,
+//					dataType:"json",
+//					success:function(data){
+//						if(data.response.data[0].guide_unread==null||data.response.data[0].guide_unread==""){
+//							document.getElementById("msg_remind").style.display="none"
+//						}
+//					}
+//				})
+//			);
+			
+//			$.plusReady(function(){
+//				document.getElementById("msg_remind").style.display="none"
+//				})
+			
+			//新建信息分享
+			document.getElementById("add_inforshare").addEventListener('tap',function(event){
+				mui.openWindow({
+					url:"add_inforshare.html",
+					id:"add_inforshare",
+				})
+				})
+			//快速查询
+			document.getElementById("121").addEventListener('tap',function(event){
+				localStorage.setItem("infor_type","1-2-1")
+					mui.openWindow({
+						url:"inforshare_list.html",
+						id:"inforshare_list"
+					})
+				})
+			document.getElementById("ll").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","LessonLearn")
+					mui.openWindow({
+						url:"inforshare_list.html",
+						id:"inforshare_list"
+					})
+				})
+			document.getElementById("peixun").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","操作工培训")
+					mui.openWindow({
+						url:"inforshare_list.html",
+						id:"inforshare_list"
+					})
+				})
+			document.getElementById("zlsm").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","质量说明")
+					mui.openWindow({
+						url:"inforshare_list.html",
+						id:"inforshare_list"
+					})
+				})
+			document.getElementById("qxml").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","缺陷目录")
+					mui.openWindow({
+						url:"inforshare_list.html",
+						id:"inforshare_list"
+					})
+				})
+			document.getElementById("khts").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","客户投诉")
+					mui.openWindow({
+						url:"inforshare_list.html",
+						id:"inforshare_list"
+					})
+				})
+			document.getElementById("glgz").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","管理规则")
+					mui.openWindow({
+						url:"inforshare_list.html",
+						id:"inforshare_list"
+					})
+				})
+			
+			document.getElementById("ryq").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","荣誉墙")
+						mui.openWindow({
+							url:"inforshare_list.html",
+							id:"inforshare_list"
+						})
+				})
+			
+			document.getElementById("lstz").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","临时通知")
+						mui.openWindow({
+							url:"inforshare_list.html",
+							id:"inforshare_list"
+						})
+				})
+			
+			document.getElementById("jixiu").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","机修")
+						mui.openWindow({
+							url:"inforshare_list.html",
+							id:"inforshare_list"
+						})
+				})
+			
+			document.getElementById("gongzhuang").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","工装")
+						mui.openWindow({
+							url:"inforshare_list.html",
+							id:"inforshare_list"
+						})
+				})
+			
+			document.getElementById("logistic").addEventListener('tap',function(){
+					localStorage.setItem("infor_type","物流")
+						mui.openWindow({
+							url:"inforshare_list.html",
+							id:"inforshare_list"
+						})
+				})
+			
+			var feedback=document.getElementById("feedback")
+				feedback.addEventListener("tap",function(event){
+					mui.openWindow({
+						url:"feedback.html",
+						id:"feedback"
+					})
+				})
+				
+			var inforshare_search=document.getElementById("inforshare_search")
+				inforshare_search.addEventListener("tap",function(event){
+					mui.openWindow({
+						url:"infor_search.html",
+						id:"infor_search"
+					})
+				})
+			
+			
+				
+//			var guide_like = document.getElementById("like")
+//			guide_like.addEventListener('tap',function(event){
+//				mui.openWindow({
+//					url:"inforguide_like_base.html",
+//					id:"inforguide_like_base"
+//				})
+//			})
+//			
+//			var statistic = document.getElementById("statistic")
+//			statistic.addEventListener('tap',function(event){
+//				mui.openWindow({
+//					url:"statistic.html",
+//					id:"statistic"
+//				})
+//			})
+			
+//			document.getElementById("report").addEventListener('tap',function(){
+//				plus.nativeUI.toast("手机端报表下载暂时未开放，请访问  http://47.92.89.156/baowusteel/  进行下载")
+//				alert("手机端报表下载暂时未开放，请访问  http://47.92.89.156/baowusteel/  进行下载")
+//					mui.openWindow({
+//						url:"../report_down.html",
+//						id:"report_dowm",
+//						
+//					extras:{
+//						model:"inforguide"
+//					}
+//					})
+					
+//				})
+//			document.getElementById("scapynews").addEventListener('tap',function(){
+//				mui.openWindow({
+//					url:"scapy.html",
+//					id:"scapy"
+//				})
+//			})
+			
+		}(mui,document))
+		</script>
+	</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>detail_inforguide</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="../css/app.css"/>
+        <link rel="stylesheet" href="../css/image_preview.css" />
+        <link rel="stylesheet" href="../css/comment.css" />
+        <link rel="stylesheet" type="text/css" href="../css/icons-extra.css" />
+        
+		<style type="text/css">
+			body {
+				background-color:#efeff4;
+			}
+		    div{
+		    	background-color: #EEEEEE;
+		    }
+		    .inforshare-nolike{
+		    	color: #8F8F94;
+		    }
+		    .inforshare-like{
+		    	color: red;
+		    }
+		   
+		</style>
+
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			 
+			 <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			 <!--<a class="mui-icon mui-icon-reload mui-pull-right" id="refresh"><div style="margin:-18px 10px 10px 30px; font: '楷体';font-size: 18px;">刷新</div></a>-->
+			<h1 class="mui-title">情报搜集详情</h1>
+			<span class="mui-pull-right" style="margin-top: 10px;">
+				<!--<a class="inforshare-nolike" id="like" ><span class="mui-icon-extra mui-icon-extra-heart-filled"></span></a>-->
+			</span>
+		</header>		
+		
+		<div class="mui-content" >
+			<h4 id="inforshare_title" style="text-align: center"></h4>		
+	        <!--<span >文件标题:</span>&nbsp;&nbsp;&nbsp;<span id="inforshare_id"></span>	      
+	        <br />-->
+	        <span >编辑者:</span>&nbsp;&nbsp;&nbsp;<span id="inforshare_editor_name"></span>      
+	        <br />
+	        <span >编辑时间:</span>&nbsp;&nbsp;&nbsp;<span id="inforshare_time"></span>          
+	        <br />
+	        <span >类别:</span>&nbsp;&nbsp;&nbsp;<span id="inforshare_type"></span>
+	        <br />
+	        <span style="border-left:20px;">正文:</span>&nbsp;&nbsp;&nbsp;<span id="inforshare_text"></span>
+	        <br/>
+        	<span>文件：</span><span id="file_to_download"></span>
+			<br/>
+			<span id="processspan">下载进度：</span><span id="processtext"></span>
+			<div class="mui-button-row">
+				<button id="downloadfile" class="mui-btn mui-btn-primary" type="button" onclick="return true;" >点击下载</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<button id="openfile" class="mui-btn mui-btn-danger" type="button" onclick="return false;">打开文件</button>
+			</div>	
+	        <p style="display: none;" id="picture_down">
+			<img id="picture_src" src="" hspace="5" vspace="5"   style="width: -webkit-fill-available;" data-preview-src="" data-preview-group="1"></img>
+			</p>
+			<p style="display: none;" id="picture_down2">
+			<img id="picture_src2" src="" hspace="5" vspace="5"   style="width: -webkit-fill-available;" data-preview-src="" data-preview-group="1"></img>
+			</p>
+			<p style="display: none;" id="picture_down3">
+			<img id="picture_src3" src="" hspace="5" vspace="5"   style="width: -webkit-fill-available;" data-preview-src="" data-preview-group="1"></img>
+			</p>
+			<br/>
+			
+	        <!--<span id="comment_area">评论区：</span>
+			<div id="comments" class="comment">
+				<ul class="mui-table-view mui-table-view-chevron" id="comments_list">
+					
+				</ul>
+			</div>-->
+		</div>
+		
+		
+		<!--<footer>
+			<div class="footer-center">
+				<textarea id='comment_text' type="text" class='input-text' placeholder="发表评论~"></textarea>
+			</div>
+			<label for="" class="footer-right">
+				<div id="comment_btn" class="mui-btn mui-btn-primary">
+					发表
+				</div>
+			</label>
+		</footer>-->
+	
+		<script src="../js/app.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/common.js"></script>
+		<script src="../js/mui.view.js "></script>
+		<script src="../js/mui.zoom.js"></script>
+		<script src="../js/mui.previewimage.js"></script>
+		<script type="text/javascript" src="../js/basepath.js" ></script>
+		<script>
+		 //点击下载和打开按钮中的onclick时间的tap按钮不能放在（function（$,doc）{mui,document}下面 要不然不好使）
+//			(function($,doc){
+			(function($,doc){
+				$.init({
+					gestureConfig:{
+					   tap: true, //默认为true
+					   longtap: true, //默认为false
+					  }
+				});
+			}(mui, document));
+				mui.previewImage();
+				mui.plusReady(function(){
+					var inforshare_title = document.getElementById('inforshare_title');
+			        var inforshare_id = document.getElementById('inforshare_id');
+			        var inforshare_editor_name = document.getElementById('inforshare_editor_name');
+					var inforshare_text = document.getElementById("inforshare_text");
+					var inforshare_type = document.getElementById("inforshare_type");
+					
+					var inforshare_time = document.getElementById("inforshare_time");
+					var file_to_download = document.getElementById("file_to_download");
+					var file_size = document.getElementById("filesize")
+					var pic_path = document.getElementById("pic_path");
+					var pic_path2 = document.getElementById("pic_path2");
+					var pic_path3 = document.getElementById("pic_path3");
+					
+					//获取前一个页面传过来的值
+					var self = plus.webview.currentWebview();//必须用plusReady 来获取前面传过来的值
+					var _inforshare_id =self.infor_id
+					var _inforshare_editor = self.infor_editor
+					var _inforshare_editor_name = self.infor_name
+					var _inforshare_title = self.infor_title
+					var _inforshare_type = self.infor_type
+					var _inforshare_text = self.infor_text
+					var _time = self.infor_time
+					var _images = self.images_list
+					var file_name = self.filename
+					var filepath = self.filepath
+					if(file_name == "null"||file_name ==""||file_name=="undefined"){
+						file_name = "无"
+						document.getElementById("processspan").style.display="none"
+						document.getElementById("downloadfile").style.display ="none"
+						document.getElementById("openfile").style.display="none"
+					}				
+				
+					inforshare_title.innerHTML=_inforshare_title
+					inforshare_time.innerHTML=_time
+					inforshare_type.innerHTML=_inforshare_type
+					inforshare_editor_name.innerHTML=_inforshare_editor_name
+					inforshare_text.innerHTML=_inforshare_text
+					file_to_download.innerHTML=file_name	
+					
+					
+					//收藏操作
+//					like_style = document.getElementById("like")
+//					mui.ajax({
+//						type:"get",
+//						url:basepath+"api/v1.0/like?access_token="+localStorage.getItem("token")+"&user_id="+localStorage.getItem("mobile"),
+//						async:true,
+//						dataType:"json",
+//						success:function(data){
+////							console.log(localStorage.getItem("mobile"))
+////							console.log(JSON.stringify(data.response))
+//							inforshare_like = data.response.data[0].inforshare_like//注意data中list和dict的区别
+//							if(inforshare_like.indexOf(inforinforshare_id)>=0){
+//								like_style.className="inforshare-like"
+//							}else{
+//								like_style.className="inforshare-nolike"
+//							}
+//							
+//						},
+//						error: function() {
+//							plus.nativeUI.toast("请求服务器出现失败!");
+//						}
+//						
+//					})
+					
+					
+//					like_style.addEventListener('tap',function(){
+//						if(like_style.className=="inforshare-nolike"){//注意复制和判断是否相等
+//							like_style.className="inforshare-like"
+//							mui.ajax({
+//								type:"PUT",
+//								url:basepath+"api/v1.0/like/alter",
+//								data:{
+//									"access_token":localStorage.getItem("token"),
+//									"user_id":localStorage.getItem("mobile"),
+//									"type":"inforinforshare",
+//									"like_id":inforinforshare_id,
+//								},
+//								async:true,
+//								dataType:"json",
+//								success:function(data){
+//									if(data.response.success == "1"){
+//										plus.nativeUI.toast("已收藏")
+//									}else{
+//										plus.nativeUI.toast("操作失败")
+//									}
+//								},
+//								error:function(){
+//									plus.nativeUI.toast("请求服务器失败!")
+//								}
+//							})
+//							
+//							
+//						}else{
+//							like_style.className = "inforshare-nolike"
+//							mui.ajax({
+//								type:"put",
+//								url:basepath+"api/v1.0/like/alter",
+//								data:{
+//									"access_token":localStorage.getItem("token"),
+//									"user_id":localStorage.getItem("mobile"),
+//									"type":"inforinforshare",
+//									"like_id":inforinforshare_id,
+//								},
+//								async:true,
+//								dataType:"json",
+//								success:function(data){
+//									if(data.response.success == "1"){
+//										plus.nativeUI.toast("已取消收藏")
+//									}else{
+//										plus.nativeUI.toast("操作失败")
+//									}
+//								},
+//								error:function(){
+//									plus.nativeUI.toast("请求服务器失败!")
+//								}
+//							})
+//							
+//						}
+//					})
+					
+		      	
+		      		var processtext = document.getElementById("processtext")
+					var dtask=null;
+					var fileName=file_name;
+					document.getElementById("downloadfile").addEventListener('tap',function(e){
+						if(file_name==""){
+							plus.nativeUI.toast("无文件可下载！")
+						}else{
+							var url = filepath;
+						    var options = {method:"GET",filename:"_doc/"+fileName};
+							dtask = plus.downloader.createDownload(url, options);//目前这种方式仅支持网络文件，本地文件不可以
+						    dtask.addEventListener( "statechanged", function(task,status){
+						    	if(!dtask){return;}
+						    	switch(task.state) {
+						    		case 1: // 开始
+						    			plus.nativeUI.toast("准备下载...");			    			
+						    		break;
+						    		case 2: // 已连接到服务器
+						    			plus.nativeUI.toast("开始下载...");
+						    		break;
+						    		case 3:	// 已接收到数据
+										processtext.innerHTML=task.downloadedSize+"/"+task.totalSize;
+//										
+						    			
+						    		break;
+						    		case 4:	// 下载完成			    			
+						    			processtext.innerHTML=parseInt(task.totalSize/1024)+"KB"
+						    			plus.nativeUI.toast("下载完成!");
+						    		break;
+						    	}
+						    } );
+			
+						    dtask.start();
+							}
+					    
+						})
+					document.getElementById("openfile").addEventListener('tap',function(e){
+						plus.runtime.openFile("_doc/"+fileName, {},function(e){
+							plus.nativeUI.toast("下载失败")
+				    })
+					})
+					
+					
+					//显示当前出差任务下的评论
+//					var comment_list = document.getElementById("comments_list")
+//					mui.ajax({
+//					type:"get",
+//					url:basepath+"api/v1.0/comment?access_token="+localStorage.getItem('token')+"&comment_type=inforinforshare&text_id="+inforinforshare_id,
+//					async:true,
+//					dataType:"json",
+//					success:function(data){
+//						if(data.response.data==""||data.response.data==NaN||data.response.data==undefined){
+//							document.getElementById("comment_area").style.display="none"
+//						}
+//						mui.each(data.response.data,function(key,value){
+//						var li = document.createElement("li")
+//						li.className="mui-table-view-cell"
+//						li.setAttribute("comment_id",value.comment_id);
+//						li.setAttribute("user_id",value.user_id);
+//						li.innerHTML="<span id='com_name'>"+value.add_user_name+"</span>"+"&nbsp;&nbsp;&nbsp;"+"<span id='com_time'>"+value.add_time
+//										+"</span>"+"<br>"+"<span id='com_text'>"+value.text+"</span>";
+//
+//                      comment_list.appendChild(li)
+//						})
+//					
+//					//长按评论删除
+//					 mui("#comments_list").on("longtap","li",function(){
+//					 	comment_id=this.getAttribute("comment_id")
+//					 	user_id = this.getAttribute("user_id")
+//					 	var btnArray = ['否', '是'];
+//						mui.confirm('删除此评论？', '', btnArray, function(e) {
+//							if (e.index == 1) {
+//								mui.ajax({
+//									type:"delete",
+//									url:basepath+"api/v1.0/comment/"+comment_id+"?access_token="+localStorage.getItem("token"),
+//									data:{
+//										"user_id":localStorage.getItem("mobile")
+//									},
+//									async:true,
+//									dataTyoe:"json",
+//									success:function(data){
+//										if(data.response.success=="1"){
+//											plus.nativeUI.toast("该评论已删除~")
+//											plus.webview.getWebviewById("detail_inforinforshare").reload()
+//										}else if(data.response.success =="0"){
+//											plus.nativeUI.toast("您无权限删除此评论！")
+//										}else{
+//											plus.nativeUI.toast("出现异常，请重试~")
+//										}
+//									},
+//								});
+//							} else {
+//							   
+//							}
+//						})
+//					 })
+//						 	
+//		   		        },
+//					});
+//					
+					
+					
+					//提交评论
+//					comment_text = document.getElementById("comment_text")
+//					comment_btn = document.getElementById("comment_btn")
+//					comment_btn.addEventListener('tap',function(event){
+//						if(comment_text.value ==""){
+//							plus.nativeUI.toast("请输入评论内容~")
+//						}else{
+//							mui.ajax({
+//							type:"post",
+//							url:basepath+"api/v1.0/comment",
+//							data:{
+//								"access_token":localStorage.getItem("token"), 
+//								"comment_type":"inforinforshare",
+//								"text_id":inforinforshare_id,
+//								"user_id":localStorage.getItem("mobile"),
+//								"text":comment_text.value,
+//							},
+//							async:true,
+//							dataType:"json",
+//							success:function(data){
+//							 	if (data.response.success == "1"){
+//										plus.nativeUI.toast("评论成功~")
+//										plus.webview.getWebviewById("detail_inforshare").reload()
+//									}else{
+//										plus.nativeUI.toast("评论失败，请重试！")
+//									}   
+//							}
+//						 });	
+//						}
+//						
+//					})
+				
+					
+					
+				})
+
+				
+
+		</script>
+		
+	</body>
+</html>

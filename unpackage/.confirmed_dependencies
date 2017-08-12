@@ -1,0 +1,343 @@
+{
+	"login.html": {
+		"resources": [
+			"js/basepath.js",
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/update.js",
+			"css/style.css",
+			"js/mui.enterfocus.js"
+		],
+		"refer": [
+			"main.html"
+		]
+	},
+	"main.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.js",
+			"js/basepath.js",
+			"js/app.js",
+			"js/mui.min.js",
+			"js/mui.enterfocus.js",
+			"fonts/mui.ttf",
+			"ptos/ptos_main.html",
+			"fonts/mui-icons-extra.ttf",
+			"css/iconfont.css",
+			"fonts/iconfont.ttf",
+			"css/icons-extra.css"
+		],
+		"refer": [
+			"ptos/ptos_main.html",
+			"selfInformation.html",
+			"inforshare/ptos_main.html",
+			"inforshare/inforshare_main.html",
+			"notice/notice_main.html"
+		]
+	},
+	"ptos/ptos_add.html": {
+		"resources": [
+			"js/basepath.js",
+			"js/app.js",
+			"js/mui.picker.js",
+			"ptos/ptos_add.html",
+			"fonts/mui.ttf",
+			"js/add_picture.js",
+			"css/app.css",
+			"js/mui.min.js",
+			"js/mui.poppicker.js",
+			"css/mui.min.css",
+			"css/mui.picker.min.css",
+			"css/mui.poppicker.css",
+			"css/picture.css",
+			"js/mui.dtpicker.js",
+			"js/mui.picker.min.js",
+			"js/get_video.js"
+		],
+		"refer": [
+			"ptos/ptos_add.html",
+			"ptos/camera_video.html"
+		]
+	},
+	"ptos/ptos_main.html": {
+		"resources": [
+			"fonts/mui-icons-extra.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/icons-extra.css",
+			"js/copy.js",
+			"js/basepath.js",
+			"js/app.js",
+			"js/mui.min.js",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"ptos/ptos_add.html",
+			"ptos/ptos_search.html",
+			"ptos/ptos_detail.html",
+			"ptos/myptos.html",
+			"ptos/camera.html"
+		]
+	},
+	"selfInformation.html": {
+		"resources": [
+			"css/app.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"selfsetting/selfsetting.html",
+			"notice/notice.html",
+			"admin/manage_user.html"
+		]
+	},
+	"inforshare/ptos_main.html": {
+		"resources": [
+			"fonts/mui-icons-extra.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/icons-extra.css",
+			"js/copy.js"
+		]
+	},
+	"ptos/ptos_search.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"css/app.css",
+			"js/mui.poppicker.js",
+			"css/mui.min.css",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css"
+		],
+		"refer": [
+			"ptos/ptos_search_content.html"
+		]
+	},
+	"ptos/ptos_detail.html": {
+		"resources": [
+			"css/comment.css",
+			"css/image_preview.css",
+			"js/mui.zoom.js",
+			"js/mui.picker.min.js",
+			"css/app.css",
+			"js/mui.previewimage.js",
+			"js/add_picture.js",
+			"js/mui.view.js",
+			"css/picture.css",
+			"css/mui.min.css"
+		]
+	},
+	"inforshare/inforshare_main.html": {
+		"resources": [
+			"css/icons-extra.css",
+			"fonts/mui-icons-extra.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"inforshare/add_inforshare.html",
+			"inforshare/inforshare_list.html",
+			"inforshare/infor_search.html",
+			"inforshare/feedback.html"
+		]
+	},
+	"inforshare/add_inforshare.html": {
+		"resources": [
+			"js/infor.js",
+			"js/mui.picker.js",
+			"js/mui.picker.min.js",
+			"js/mui.poppicker.js",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css",
+			"js/add_picture.js",
+			"css/picture.css",
+			"css/mui.min.css",
+			"css/app.css"
+		]
+	},
+	"selfsetting/selfsetting.html": {
+		"resources": [
+			"css/app.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"selfsetting/feedback.html",
+			"selfsetting/changepsw.html",
+			"selfsetting/complete_infor.html",
+			"selfsetting/about_vct.html"
+		]
+	},
+	"notice/notice.html": {
+		"resources": [
+			"css/mui.min.css",
+			"css/app.css"
+		],
+		"refer": [
+			"notice/notice_main.html",
+			"notice/new_notice.html",
+			"notice/mynotice.html"
+		]
+	},
+	"notice/notice_main.html": {
+		"resources": [
+			"notice/noticelist.html",
+			"css/mui.min.css",
+			"css/app.css"
+		],
+		"refer": [
+			"notice/noticelist.html"
+		]
+	},
+	"notice/noticelist.html": {
+		"resources": [
+			"css/mui.min.css"
+		],
+		"refer": [
+			"notice/notice_detail.html"
+		]
+	},
+	"notice/new_notice.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"selfsetting/feedback.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"selfsetting/complete_infor.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"js/mui.poppicker.js",
+			"css/mui.min.css",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css"
+		]
+	},
+	"selfsetting/about_vct.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"admin/manage_user.html": {
+		"refer": [
+			"admin/add_user.html",
+			"admin/users_list.html"
+		],
+		"resources": [
+			"css/app.css",
+			"css/mui.min.css"
+		]
+	},
+	"admin/add_user.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"js/mui.poppicker.js",
+			"css/mui.min.css",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css"
+		]
+	},
+	"inforshare/feedback.html": {
+		"resources": [
+			"css/mui.min.css",
+			"css/app.css"
+		]
+	},
+	"inforshare/inforshare_list.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/copy.js"
+		],
+		"refer": [
+			"inforshare/infor_detail.html"
+		]
+	},
+	"ptos/myptos.html": {
+		"resources": [
+			"css/app.css",
+			"css/mui.min.css",
+			"css/iconfont.css"
+		],
+		"refer": [
+			"ptos/ptos_detail.html"
+		]
+	},
+	"ptos/ptos_search_content.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.js"
+		],
+		"refer": [
+			"ptos/ptos_detail.html"
+		]
+	},
+	"inforshare/infor_detail.html": {
+		"resources": [
+			"css/comment.css",
+			"css/image_preview.css",
+			"js/mui.zoom.js",
+			"js/common.js",
+			"css/app.css",
+			"js/mui.previewimage.js",
+			"js/mui.view.js",
+			"css/mui.min.css"
+		]
+	},
+	"inforshare/infor_search.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"css/app.css",
+			"js/mui.poppicker.js",
+			"css/mui.min.css",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css"
+		],
+		"refer": [
+			"inforshare/infor_search_content.html"
+		]
+	},
+	"inforshare/infor_search_content.html": {
+		"resources": [
+			"css/mui.min.css"
+		],
+		"refer": [
+			"inforshare/infor_detail.html"
+		]
+	},
+	"selfsetting/changepsw.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"ptos/camera.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css",
+			"js/immersed.js",
+			"js/get_video.js"
+		],
+		"refer": [
+			"ptos/camera_video.html"
+		]
+	},
+	"notice/notice_detail.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"admin/users_list.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	},
+	"ptos/camera_video.html": {
+		"resources": [
+			"css/common.css",
+			"js/common.js",
+			"css/app.css",
+			"css/mui.min.css"
+		]
+	}
+}
